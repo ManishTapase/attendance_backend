@@ -6,5 +6,5 @@ router.post("/register", registerController);
 router.post("/login", loginController);
 router.post("/set-attendance", requiredSignIn,setUserAttendanceController);
 router.get("/get-attendance/:name",getUserAttendanceController);
-router.post("/delete-attendance/:name",deleteAttendanceDate);
+router.post("/delete-attendance/:name",requiredSignIn,deleteAttendanceDate);
 export default router;
