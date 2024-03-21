@@ -1,0 +1,10 @@
+import express from 'express';
+import { deleteAttendanceDate, getUserAttendanceController, loginController, registerController, setUserAttendanceController } from './controller.js';
+import { requiredSignIn } from './authmiddelware.js';
+const router = express.Router();
+router.post("/register", registerController);
+router.post("/login", loginController);
+router.post("/set-attendance", requiredSignIn,setUserAttendanceController);
+router.get("/get-attendance/:name",getUserAttendanceController);
+router.post("/delete-attendance/:name",deleteAttendanceDate);
+export default router;
